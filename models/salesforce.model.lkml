@@ -13,6 +13,12 @@ persist_with: salesforce_default_datagroup
 explore: opportunity {
   label: "Performance by Seller"
 
+  join: opportunity_derived_table {
+    #type: left_outer
+    sql_on: ${opportunity.id} =  ${opportunity_derived_table.id};;
+    relationship: one_to_one
+  }
+
   join: user {
     #type: left_outer
     sql_on: ${opportunity.owner_id} =  ${user.id};;
@@ -61,6 +67,12 @@ explore: pipeline_snapshot_c {
     #type: left_outer
     sql_on: ${opportunity.owner_id} =  ${user.id};;
     relationship: many_to_one
+  }
+
+  join: opportunity_derived_table {
+    #type: left_outer
+    sql_on: ${opportunity.id} =  ${opportunity_derived_table.id};;
+    relationship: one_to_one
   }
 
 
