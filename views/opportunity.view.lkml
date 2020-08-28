@@ -1271,10 +1271,44 @@ view: opportunity {
     sql: (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR}) ;;
   }
 
+  dimension: is_ytd {
+    type: yesno
+    group_label: "Date Restrictions"
+    label: "Is_YTD?"
+    view_label: "Dynamic Grouping & Time Comparisons"
+    sql:
+     ${fiscal_year} < EXTRACT (YEAR FROM CURRENT_TIMESTAMP)
+    OR
+     (${fiscal_year} = EXTRACT (YEAR FROM CURRENT_TIMESTAMP)
+    AND
+    ${fiscal_quarter} <= EXTRACT (QUARTER FROM CURRENT_TIMESTAMP))
+    ;;
+    }
+
   measure: Total_Amount_2019_Year {
     type: sum
     value_format_name: usd
     sql: case when ${fiscal_year} = 2019 then (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR}) end;;
+  }
+
+  measure: Previous_Year_Total_ARR {
+    type: sum
+    value_format_name: usd
+    sql:  (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR});;
+    filters: {
+      field: is_ytd
+      value: "yes"
+    }
+  }
+
+  measure: Previous_Year_Total_ARR1 {
+    type: sum
+    value_format_name: usd
+    sql:  (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR});;
+    filters: {
+      field: fiscal_year
+      value: "2019"
+    }
   }
 
   measure: Total_Amount_2018_Year {
