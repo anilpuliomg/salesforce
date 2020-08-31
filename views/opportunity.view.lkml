@@ -1215,10 +1215,10 @@ view: opportunity {
     sql: ${opportunity_derived_table.Microkitchen_ARR};;
   }
 
-  measure: Microkitchen_Forecasting_ARR {
+  measure: Microkitchen_Forecast_ARR {
     type: sum
     value_format_name: usd
-    sql: (${opportunity_derived_table.Microkitchen_ARR}*${probability})/100;;
+    sql: ${opportunity_derived_table.Microkitchen_Forecast_ARR};;
   }
 
 #   measure: Catering_ARR {
@@ -1238,7 +1238,7 @@ view: opportunity {
   measure: Catering_Forecast_ARR {
     type: sum
     value_format_name: usd
-    sql: (${opportunity_derived_table.Catering_ARR}*${probability})/100 ;;
+    sql: ${opportunity_derived_table.Catering_Forecast_ARR} ;;
   }
 
 #   measure: Cafe_Management_ARR {
@@ -1253,10 +1253,10 @@ view: opportunity {
     sql: ${opportunity_derived_table.Cafe_Management_ARR} ;;
   }
 
-  measure: Cafe_Management_Forecasting_ARR {
+  measure: Cafe_Management_Forecast_ARR {
     type: sum
     value_format_name: usd
-    sql: (${opportunity_derived_table.Cafe_Management_ARR}*${probability})/100 ;;
+    sql: ${opportunity_derived_table.Cafe_Management_Forecast_ARR} ;;
   }
 
 #   measure: Wellness_ARR {
@@ -1271,10 +1271,10 @@ view: opportunity {
     sql: ${opportunity_derived_table.Wellness_ARR} ;;
   }
 
-  measure: Wellness_Forecasting_ARR {
+  measure: Wellness_Forecast_ARR {
     type: sum
     value_format_name: usd
-    sql: (${opportunity_derived_table.Wellness_ARR}*${probability})/100 ;;
+    sql: ${opportunity_derived_table.Wellness_Forecast_ARR} ;;
   }
 
 #   measure: Byte_ARR {
@@ -1292,13 +1292,19 @@ view: opportunity {
   measure: Byte_Forecast_ARR {
     type: sum
     value_format_name: usd
-    sql: (${opportunity_derived_table.Byte_ARR}*${probability})/100 ;;
+    sql: ${opportunity_derived_table.Byte_Forecast_ARR} ;;
   }
 
   measure: Total_ARR {
     type: sum
     value_format_name: usd
     sql: (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR}) ;;
+  }
+
+  measure: Total_Forecast_ARR {
+    type: sum
+    value_format_name: usd
+    sql: (${opportunity_derived_table.Byte_Forecast_ARR} + ${opportunity_derived_table.Wellness_Forecast_ARR} + ${opportunity_derived_table.Cafe_Management_Forecast_ARR} + ${opportunity_derived_table.Catering_Forecast_ARR} + ${opportunity_derived_table.Microkitchen_Forecast_ARR}) ;;
   }
 
   dimension: is_ytd {
