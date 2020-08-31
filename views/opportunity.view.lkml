@@ -1215,6 +1215,12 @@ view: opportunity {
     sql: ${opportunity_derived_table.Microkitchen_ARR};;
   }
 
+  measure: Microkitchen_Forecasting_ARR {
+    type: sum
+    value_format_name: usd
+    sql: (${opportunity_derived_table.Microkitchen_ARR}*${probability})/100;;
+  }
+
 #   measure: Catering_ARR {
 #     type: number
 #     value_format_name: usd
@@ -1229,6 +1235,12 @@ view: opportunity {
     sql: ${opportunity_derived_table.Catering_ARR} ;;
   }
 
+  measure: Catering_Forecast_ARR {
+    type: sum
+    value_format_name: usd
+    sql: (${opportunity_derived_table.Catering_ARR}*${probability})/100 ;;
+  }
+
 #   measure: Cafe_Management_ARR {
 #     type: number
 #     value_format_name: usd
@@ -1239,6 +1251,12 @@ view: opportunity {
     type: sum
     value_format_name: usd
     sql: ${opportunity_derived_table.Cafe_Management_ARR} ;;
+  }
+
+  measure: Cafe_Management_Forecasting_ARR {
+    type: sum
+    value_format_name: usd
+    sql: (${opportunity_derived_table.Cafe_Management_ARR}*${probability})/100 ;;
   }
 
 #   measure: Wellness_ARR {
@@ -1253,6 +1271,12 @@ view: opportunity {
     sql: ${opportunity_derived_table.Wellness_ARR} ;;
   }
 
+  measure: Wellness_Forecasting_ARR {
+    type: sum
+    value_format_name: usd
+    sql: (${opportunity_derived_table.Wellness_ARR}*${probability})/100 ;;
+  }
+
 #   measure: Byte_ARR {
 #     type: number
 #     value_format_name: usd
@@ -1263,6 +1287,12 @@ view: opportunity {
     type: sum
     value_format_name: usd
     sql: ${opportunity_derived_table.Byte_ARR} ;;
+  }
+
+  measure: Byte_Forecast_ARR {
+    type: sum
+    value_format_name: usd
+    sql: (${opportunity_derived_table.Byte_ARR}*${probability})/100 ;;
   }
 
   measure: Total_ARR {

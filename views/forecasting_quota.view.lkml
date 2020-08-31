@@ -101,7 +101,7 @@ view: forecasting_quota {
   }
 
   measure:  Total_Quota_Amount {
-    type: max
+    type: sum_distinct
     value_format_name: usd
     sql: ${quota_amount} ;;
   }
