@@ -1211,12 +1211,14 @@ view: opportunity {
 
   measure: Microkitchen_ARR {
     type: sum
+    label: "Garten Kitchen ARR"
     value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Microkitchen_ARR};;
   }
 
   measure: Microkitchen_Forecast_ARR {
     type: sum
+    label: "Garten Kitchen Forecast ARR"
     value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Microkitchen_Forecast_ARR};;
   }
@@ -1267,12 +1269,14 @@ view: opportunity {
 
   measure: Wellness_ARR {
     type: sum
+    label: "Wellbeing ARR"
     value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Wellness_ARR} ;;
   }
 
   measure: Wellness_Forecast_ARR {
     type: sum
+    label: "Wellbeing Forecast ARR"
     value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Wellness_Forecast_ARR} ;;
   }
@@ -1285,12 +1289,14 @@ view: opportunity {
 
   measure: Byte_ARR {
     type: sum
+    label: "Garten Market ARR"
     value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Byte_ARR} ;;
   }
 
   measure: Byte_Forecast_ARR {
     type: sum
+    label: "Garten Market Forecast ARR"
     value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Byte_Forecast_ARR} ;;
   }
