@@ -102,7 +102,7 @@ view: forecasting_quota {
 
   measure:  Total_Quota_Amount {
     type: sum_distinct
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${quota_amount} ;;
   }
 

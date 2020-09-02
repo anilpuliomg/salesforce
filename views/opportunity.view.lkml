@@ -1187,7 +1187,7 @@ view: opportunity {
 
   measure: Total_Amount {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${amount} ;;
   }
 
@@ -1199,7 +1199,7 @@ view: opportunity {
 
   measure: Total_Budget {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Total_Budget} ;;
   }
 
@@ -1211,13 +1211,13 @@ view: opportunity {
 
   measure: Microkitchen_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Microkitchen_ARR};;
   }
 
   measure: Microkitchen_Forecast_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Microkitchen_Forecast_ARR};;
   }
 
@@ -1231,13 +1231,13 @@ view: opportunity {
 
   measure: Catering_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Catering_ARR} ;;
   }
 
   measure: Catering_Forecast_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Catering_Forecast_ARR} ;;
   }
 
@@ -1249,13 +1249,13 @@ view: opportunity {
 
   measure: Cafe_Management_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Cafe_Management_ARR} ;;
   }
 
   measure: Cafe_Management_Forecast_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Cafe_Management_Forecast_ARR} ;;
   }
 
@@ -1267,13 +1267,13 @@ view: opportunity {
 
   measure: Wellness_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Wellness_ARR} ;;
   }
 
   measure: Wellness_Forecast_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Wellness_Forecast_ARR} ;;
   }
 
@@ -1285,25 +1285,26 @@ view: opportunity {
 
   measure: Byte_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Byte_ARR} ;;
   }
 
   measure: Byte_Forecast_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: ${opportunity_derived_table.Byte_Forecast_ARR} ;;
   }
 
   measure: Total_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR}) ;;
+    drill_fields: [name,Total_ARR]
   }
 
   measure: Total_Forecast_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: (${opportunity_derived_table.Byte_Forecast_ARR} + ${opportunity_derived_table.Wellness_Forecast_ARR} + ${opportunity_derived_table.Cafe_Management_Forecast_ARR} + ${opportunity_derived_table.Catering_Forecast_ARR} + ${opportunity_derived_table.Microkitchen_Forecast_ARR}) ;;
   }
 
@@ -1323,13 +1324,13 @@ view: opportunity {
 
   measure: Total_Amount_2019_Year {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: case when ${fiscal_year} = 2019 then (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR}) end;;
   }
 
   measure: Previous_Year_Total_ARR {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql:  (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR});;
     filters: {
       field: is_ytd
@@ -1339,7 +1340,7 @@ view: opportunity {
 
   measure: Previous_Year_Total_ARR1 {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql:  (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR});;
     filters: {
       field: fiscal_year
@@ -1349,19 +1350,19 @@ view: opportunity {
 
   measure: Total_Amount_2018_Year {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: case when ${fiscal_year} = 2018 then (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR}) end;;
   }
 
   measure: Total_Amount_2017_Year {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: case when ${fiscal_year} = 2017 then (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR}) end;;
   }
 
   measure: Total_Amount_2016_Year {
     type: sum
-    value_format_name: usd
+    value_format: "$#,##0;($#,##0)"
     sql: case when ${fiscal_year} = 2016 then (${opportunity_derived_table.Byte_ARR} + ${opportunity_derived_table.Wellness_ARR} + ${opportunity_derived_table.Cafe_Management_ARR} + ${opportunity_derived_table.Catering_ARR} + ${opportunity_derived_table.Microkitchen_ARR}) end;;
   }
 
